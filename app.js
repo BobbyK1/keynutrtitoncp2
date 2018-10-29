@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = ("body-parser");
 const mongoose = require("mongoose");
 const favicon = require("serve-favicon");
+require("dotenv").config();
 
 mongoose.connect("mongodb://admin:OnlyForContact1@ds145043.mlab.com:45043/keynutrition-contact", { useNewUrlParser: true });
 
@@ -32,6 +33,6 @@ app.get("/contact-us", function(req, res) {
     res.render("contact-us");
 })
 
-app.listen(8080, function() {
-    console.log("Server Started on Port: 8080");
+app.listen(process.env.PORT, function() {
+    console.log("Server Started on Port: " + process.env.PORT);
 });
