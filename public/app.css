@@ -1,5 +1,10 @@
+@font-face {
+    font-family: "Agency";
+    src: url("fonts/agency-fb_[allfont.net].ttf");
+}
+
 body {
-    font-family: Ubuntu;
+    font-family: 'Agency', sans-serif;
     background-color: #DCDCDC;
     background-image: url(images/stripes-light.png);
 }
@@ -29,7 +34,7 @@ body {
 
 .head {
     font-weight: 700;
-    font-size: 3em;
+    font-size: 5em;
     margin-top: 115px;
 }
 
