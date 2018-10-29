@@ -32,6 +32,6 @@ app.get("/contact-us", function(req, res) {
     res.render("contact-us");
 })
 
-app.listen(process.env.PORT, function() {
+app.listen(8080, function() {
     console.log("Server Started on Port: 8080");
 });

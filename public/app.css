@@ -15,9 +15,6 @@ body {
 }
 
 .bg-image {
-    background-image: url(images/keynutrition.jpg);
-    background-size: cover;
-    background-position: center;
 }
 
 .splash-img {
@@ -33,7 +30,7 @@ body {
 }
 
 .btn-center {
-    margin-left: 30px;
+    margin-left: 55px;
 }
 
 .head {
