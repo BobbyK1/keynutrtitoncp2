@@ -1,6 +1,7 @@
 body {
     font-family: Ubuntu;
     background-color: #DCDCDC;
+    background-image: url(images/stripes-light.png);
 }
 
 .icon {
@@ -14,17 +15,6 @@ body {
     border-bottom: 4px solid #01FF70;
 }
 
-.bg-image {
-}
-
-.splash-img {
-    height: 500px;
-}
-
-.jumbotron {
-    background-color: white;
-}
-
 .comp-width-1 {
     width: 100%;
 }
@@ -34,7 +24,7 @@ body {
 }
 
 .btn-center {
-    margin-left: 50px;
+    margin: 0 auto;
 }
 
 .head {
@@ -43,7 +33,18 @@ body {
     margin-top: 115px;
 }
 
+.mg-top {
+    margin-top: 40px;
+}
+
+@media (max-width: 576px) {
+    .col-small {
+        margin-left: 12%;
+    }
+}
+
 .content {
+    height: 400px;
     background-color: #f8f9fa;
     box-shadow: 0px 4px 3px rgba(0,0,0,.4),
 				 0px 8px 13px rgba(0,0,0,0.1),

@@ -1,21 +1,23 @@
 <% include partials/header %>
-<div class="container content">
-    <form action="/contact-us" method="POST">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="userName">Name</label>
-            <input type="text" class="form-control" id="userName" name="name" placeholder="Enter Name">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" name="message" placeholder="Message">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="container-fluid content">
+    <div class="container">
+        <form action="/contact-us" method="POST">
+            <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="userName">Name</label>
+                <input type="text" class="form-control" id="userName" name="name" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="message" placeholder="Message">
+            </div>
+            <button type="submit" class="btn btn-outline-success btn-block">Submit</button>
+        </form>
+    </div>
 </div>
 
 <% include partials/footer %>
