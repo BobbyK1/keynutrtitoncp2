@@ -25,12 +25,16 @@ body {
     background-color: white;
 }
 
+.comp-width-1 {
+    width: 100%;
+}
+
 .subtext {
-    margin-left: 110px;
+    text-align: center;
 }
 
 .btn-center {
-    margin-left: 55px;
+    margin-left: 50px;
 }
 
 .head {
