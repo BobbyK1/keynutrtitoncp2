@@ -14,14 +14,14 @@ body {
 
 .grow {
     line-height: 80px !important;
-    height: 80px !important;
+    height: 100% !important;
       -webkit-transition: height .5s, line-height .5s; /* Safari */
       transition: height .5s, line-height .5s;
 }
 
 .shrink {
     line-height: 50px !important;
-    height: 50px !important;
+    height: 100% !important;
         -webkit-transition: height .5s, line-height .5s; /* Safari */
         transition: height .5s, line-height .5s;
 }
