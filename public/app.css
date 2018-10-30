@@ -35,10 +35,7 @@ body {
 }
 
 .bg-image {
-    background-image: url(images/chuttersnap-622220-unsplash.jpg);
-    background-position: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    
 }
 
 .content-sz {
