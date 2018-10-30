@@ -9,11 +9,8 @@ body {
     background-image: url(images/stripes-light.png);
 }
 
-#global-nav {
-}
-
 .grow {
-    line-height: 80px !important;
+    line-height: 65px !important;
     height: 100% !important;
       -webkit-transition: height .5s, line-height .5s; /* Safari */
       transition: height .5s, line-height .5s;
@@ -38,6 +35,10 @@ body {
 }
 
 .bg-image {
+    background-image: url(images/chuttersnap-622220-unsplash.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .content-sz {
