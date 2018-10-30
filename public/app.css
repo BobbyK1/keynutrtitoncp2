@@ -68,11 +68,11 @@ body {
     margin-bottom: 40px;
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
     .col-small {
         margin-left: 11.5%;
     }
-}
+} */
 
 .content {
     height: 400px;
