@@ -20,6 +20,10 @@ body {
     border-bottom: 4px solid #01FF70;
 }
 
+.content-sz {
+    height: 100%;
+}
+
 .comp-width-1 {
     width: 100%;
 }
@@ -42,9 +46,13 @@ body {
     margin-top: 40px;
 }
 
+.mg-btm {
+    margin-bottom: 40px;
+}
+
 @media (max-width: 576px) {
     .col-small {
-        margin-left: 12%;
+        margin-left: 11.5%;
     }
 }
 
@@ -58,4 +66,18 @@ body {
 
 form {
     padding: 25px 0;
+}
+
+.footer-content {
+    background-color: #111111;
+    height: 100%;
+}
+
+.h5-left h5{
+    margin-left: 25px;
+}
+
+.footer-sec {
+    background-image: url(images/green_dust_scratch_@2X.png);
+    height: 100px;
 }
