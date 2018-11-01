@@ -15,8 +15,7 @@ app.set("view engine", "ejs");
 var contactSchema = new mongoose.Schema({
     email: String,
     name: String,
-    message: String,
-    created: {type: Date, default: Date.now}
+    message: String
 });
 
 var Contact = mongoose.model("Contact", contactSchema);
@@ -31,6 +30,16 @@ app.get("/thank-you", function(req, res) {
 
 app.get("/contact-us", function(req, res) {
     res.render("contact-us");
+})
+
+app.post("/contact-us", function(req, res){
+    Contact.create ({
+        email: "marbobkara@gmail.com",
+        name: "Bobby",
+        message: "Hello World!"
+    });
+
+    res.redirect("/thank-you");
 })
 
 app.listen(process.env.PORT, function() {
