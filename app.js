@@ -34,8 +34,8 @@ app.get("/contact-us", function(req, res) {
 
 app.post("/contact-us", function(req, res){
     Contact.create ({
-        email: "marbobkara@gmail.com",
-        name: "Bobby",
+        email: req.body.email,
+        name: req.body.message,
         message: "Hello World!"
     });
 
