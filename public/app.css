@@ -17,7 +17,7 @@ body {
 }
 
 .shrink {
-    line-height: 50px !important;
+    line-height: 25px !important;
     height: 100% !important;
         -webkit-transition: height .5s, line-height .5s; /* Safari */
         transition: height .5s, line-height .5s;
@@ -32,10 +32,6 @@ body {
 
 .bottom-line {
     border-bottom: 4px solid #01FF70;
-}
-
-.bg-image {
-    
 }
 
 .content-sz {
@@ -62,6 +58,10 @@ body {
 
 .mg-top {
     margin-top: 40px;
+}
+
+.mg-top-ex {
+    padding-top: 75px;
 }
 
 .mg-btm {

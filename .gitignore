@@ -1,5 +1,5 @@
 #dependincies
-/node_modules
+node_modules
 
 #MISC
 .env
