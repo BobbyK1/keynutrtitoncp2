@@ -5,11 +5,11 @@ $(document).ready(function(){
         $('.counter').html(scrollTop);
       
         if (scrollTop >= 25) {
-            $('#global-nav').removeClass('shrink');
-            $('#global-nav').addClass('grow');
-        } else if (scrollTop < 25) {
             $('#global-nav').addClass('shrink');
             $('#global-nav').removeClass('grow');
+        } else if (scrollTop < 25) {
+            $('#global-nav').removeClass('shrink');
+            $('#global-nav').addClass('grow');
         } 
     });     
 });
