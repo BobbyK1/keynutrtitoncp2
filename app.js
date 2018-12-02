@@ -11,6 +11,8 @@ require("dotenv").config();
 
 mongoose.connect("mongodb://admin:OnlyForContact1@ds145043.mlab.com:45043/keynutrition-contact", { useNewUrlParser: true });
 
+
+// MIDDLEWARE
 app.use(express.static("public"));
 app.use(favicon(__dirname + '/public/images/herbalife.png'));
 app.use(bodyParser.urlencoded({ extended: true }));
