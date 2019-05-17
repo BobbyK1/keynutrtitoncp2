@@ -1,6 +1,6 @@
 <% include partials/header %>
-<div class="container-fluid content bg-transparent" style="height: 600px;">
-    <div class="container bg-white" style="height: 100%; padding-top: 30px;">
+<div class="container-fluid content bg-transparent" style="height: 700px;">
+    <div class="container bg-white" style="height: 100%; padding-top: 60px;">
         <h1 class="text-center">Contact Us</h1>
         <p class="text-center">Please feel free to leave questions, comments, and concerns and we will get back ASAP!</p>
         <hr style="width: 100%;">
@@ -24,6 +24,10 @@
             <label for="exampleInputPassword1">Message</label>
             <textarea class="form-control mg-btm" id="exampleFormControlTextarea1" name="message" rows="6"></textarea>
             </div>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            <div class="text-center">
+                <div class="g-recaptcha" data-sitekey="6LflA6QUAAAAAKIZWRXIawCOdb31XrTe_B3nykcO" style="margin-top: -10px; margin-bottom: 15px;"></div>
+            </div> 
             <button type="submit" class="btn btn-outline-success btn-lg btn-block">Submit</button>
         </form>
     </div>

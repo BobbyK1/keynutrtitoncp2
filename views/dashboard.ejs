@@ -3,13 +3,43 @@
 <div class="row">   
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
         <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-                <li class="nav-item">Contact Us Responses</li>
-                <li class="nav-item">Shake of the month</li>
-                <li class="nav-item"><a herf="/logout" class="nav-link">Logout</a></li>
+            <ul class="nav flex-column" style="font-size: 1.3em;">
+                <li class="nav-item" style="margin-top: -10px;"><a href="/dashboard" class="nav-link" style="background-color: #A1FFCE; border-bottom: 5px solid #28a745; color: black;">Contact Us Responses <span class="sr-only">(current)</span></a></li>
+                <li class="nav-item dash-link">Shake of the month</li>
+                <li class="nav-item dash-link"><a href="/logout" class="nav-link">Logout</a></li>
             </ul>
         </div>
     </nav>
+    <div class="col">
+        <h1 class="text-center mg-top">Responses: </h1>
+        <% contact.forEach(function(contacts){ %>
+            <div class="contact-field">
+                <div class="row" style="margin-left: 25px; margin-right: 25px; padding-top: 25px; border-bottom: 1px solid black;">
+                    <div class="col-6">
+                        <h3>Email: <%= contacts.email %></h3>
+                    </div>
+                    <div class="col-6 text-right">
+                        <h3>Name: <%= contacts.name %></span></h3>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="contact">
+                        <p><span style="font-size: 1.2em;">Message:</span> <br/> <span style="margin-left: 25px;"><%= contacts.message %></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <a href="mailto:<%= contacts.email %>" class="btn btn-success btn-lg" style="width: 100%; margin: 0; border-radius: 0;">Email Back</a>
+                    </div>
+                    <div class="col-6">
+                        <form style="margin: 0; padding: 0;" method="POST" action="/dashboard">
+                            <button class="btn btn-danger btn-lg" style="width: 100%; border-radius: 0;" name="id" value="<%= contacts.id %>">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
 </div>
 
 <% include partials/footer %>

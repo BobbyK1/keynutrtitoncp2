@@ -67,7 +67,26 @@ app.get("/admin", function(req, res){
 })
 
 app.get("/dashboard", isLoggedIn, function(req, res){
-    res.render("dashboard");
+    Contact.find({}, function(err, allContact){
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("dashboard", {contact: allContact})
+        }
+    })
+})
+
+app.post("/dashboard", isLoggedIn, function(req, res){
+    Contact.deleteOne({ _id: req.body.id }, function(err) {
+        id = req.body.id;
+        console.log(id);
+        if (err) {
+            console.log(err)
+        }
+        else {
+            res.redirect("/dashboard");
+        }
+    });
 })
 
 app.post("/admin", passport.authenticate("local", {

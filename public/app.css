@@ -7,6 +7,7 @@ body {
     font-family: 'Agency', sans-serif;
     background-color: #DCDCDC;
     background-image: url(images/stripes-light.png);
+    overflow-x: hidden;
 }
 
 .grow {
@@ -130,4 +131,53 @@ form {
     flex-direction: column!important;
     text-align: center;
     line-height: 5em;
+}
+
+.dash-link {
+    border-bottom: 5px solid transparent;
+}
+
+.dash-link a {
+    color: black;
+}
+
+.dash-link:hover {
+    border-bottom: 5px solid #28a745;
+}
+
+.contact-field {
+    margin: 25px auto;
+    width: 45%;
+    height: auto;
+    border-bottom: 2px solid black;
+    background-color: white;
+}
+
+.contact-header {
+    margin: 0;
+    width: 100%;
+    border-bottom: 2px solid black;
+    display: block;
+}
+
+.g-recaptcha {
+    display: inline-block;
+}
+
+.contact {
+    font-size: 1.2em;
+    margin-left: 10px;
+    margin-top: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+    .height {
+        height: 600px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .height {
+        height: 800px;
+    }
 }
