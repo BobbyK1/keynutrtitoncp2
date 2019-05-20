@@ -9,27 +9,28 @@
             <div class="row text-center">
                 <div class="col">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" required="required" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="userName">Name</label>
-                        <input type="textarea" class="form-control" id="userName" name="name" placeholder="Enter Name">
+                        <input type="textarea" required="required" class="form-control" id="userName" name="name" placeholder="Enter Name">
                     </div>
                 </div>
             </div>
             </div>
             <div class="form-group text-center">
             <label for="exampleInputPassword1">Message</label>
-            <textarea class="form-control mg-btm" id="exampleFormControlTextarea1" name="message" rows="6"></textarea>
+            <textarea required="required" class="form-control mg-btm" id="exampleFormControlTextarea1" name="message" rows="6"></textarea>
             </div>
             <script src="https://www.google.com/recaptcha/api.js" async defer></script>
             <div class="text-center">
                 <div class="g-recaptcha" data-sitekey="6LflA6QUAAAAAKIZWRXIawCOdb31XrTe_B3nykcO" style="margin-top: -10px; margin-bottom: 15px;"></div>
             </div> 
-            <button type="submit" class="btn btn-outline-success btn-lg btn-block">Submit</button>
+            <input type="submit" value="Submit" class="btn btn-outline-success btn-lg btn-block">
         </form>
+        </script>
     </div>
 </div>
 

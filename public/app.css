@@ -174,6 +174,14 @@ form {
     .height {
         height: 600px;
     }
+
+    .contact-field {
+        width: 100%;
+    }
+
+    .text-right {
+        text-align: left !important;
+    }
 }
 
 @media only screen and (min-width: 768px) {

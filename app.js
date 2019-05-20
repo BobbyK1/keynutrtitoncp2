@@ -7,6 +7,7 @@ const favicon = require("serve-favicon");
 const passport = require("passport"),
       passportLocalMongoose = require("passport-local-mongoose"),
       LocalStrategy = require("passport-local");
+// const recaptcha = new Recaptcha('6LflA6QUAAAAAKIZWRXIawCOdb31XrTe_B3nykcO', '6LflA6QUAAAAAJ1hjFQdQSHAo-9-I-9EeAbKpBwG');
 require("dotenv").config();
 
 mongoose.connect("mongodb://admin:OnlyForContact1@ds145043.mlab.com:45043/keynutrition-contact", { useNewUrlParser: true });
@@ -15,6 +16,7 @@ mongoose.connect("mongodb://admin:OnlyForContact1@ds145043.mlab.com:45043/keynut
 // MIDDLEWARE
 app.use(express.static("public"));
 app.use(favicon(__dirname + '/public/images/herbalife.png'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require("express-session")({
     secret: "Admin Use",
@@ -49,17 +51,22 @@ app.get("/thank-you", function(req, res) {
 })
 
 app.get("/contact-us", function(req, res) {
-    res.render("contact-us");
+    res.render("contact-us", { captcha:res.recaptcha });
+})
+
+app.get("/apply", function(req, res){
+    var field = 1;
+    res.render("apply", { field:field });
 })
 
 app.post("/contact-us", function(req, res){
-    Contact.create ({
-        email: req.body.email,
-        name: req.body.name,
-        message: req.body.message
-    });
+        Contact.create ({
+            email: req.body.email,
+            name: req.body.name,
+            message: req.body.message
+        });
 
-    res.redirect("/thank-you");
+        res.redirect("/thank-you");
 })
 
 app.get("/admin", function(req, res){
@@ -87,6 +94,10 @@ app.post("/dashboard", isLoggedIn, function(req, res){
             res.redirect("/dashboard");
         }
     });
+})
+
+app.get("/applications", isLoggedIn, function(req, res){
+    res.render("applications");
 })
 
 app.post("/admin", passport.authenticate("local", {
