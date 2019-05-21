@@ -7,7 +7,6 @@ const favicon = require("serve-favicon");
 const passport = require("passport"),
       passportLocalMongoose = require("passport-local-mongoose"),
       LocalStrategy = require("passport-local");
-// const recaptcha = new Recaptcha('6LflA6QUAAAAAKIZWRXIawCOdb31XrTe_B3nykcO', '6LflA6QUAAAAAJ1hjFQdQSHAo-9-I-9EeAbKpBwG');
 require("dotenv").config();
 
 mongoose.connect("mongodb://admin:OnlyForContact1@ds145043.mlab.com:45043/keynutrition-contact", { useNewUrlParser: true });
@@ -40,6 +39,20 @@ var contactSchema = new mongoose.Schema({
     collection: "contacts"
 });
 
+// APPLICATIONS SCHEMA
+var applicationSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    address: String,
+    state: String,
+    zipcode: String,
+    phone: String
+}, {
+    collection: "applications"
+});
+
+// ROUTES
 var Contact = mongoose.model("Contact", contactSchema);
 
 app.get("/", function(req, res) {

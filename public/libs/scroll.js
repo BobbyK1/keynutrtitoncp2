@@ -4,10 +4,10 @@ $(document).ready(function(){
         scrollTop = $(window).scrollTop();
         $('.counter').html(scrollTop);
       
-        if (scrollTop >= 25) {
+        if (scrollTop >= 5) {
             $('#global-nav').addClass('shrink');
             $('#global-nav').removeClass('grow');
-        } else if (scrollTop < 25) {
+        } else if (scrollTop < 5) {
             $('#global-nav').removeClass('shrink');
             $('#global-nav').addClass('grow');
         } 

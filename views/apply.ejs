@@ -40,7 +40,7 @@
                         <input type="email" name="email" id="email" class="form-control">
                     </div>
                     <div class="col-md-6 col-xs-12">
-                        <label for="phone">Email: </label>
+                        <label for="phone">Phone Number: </label>
                         <input type="tel" name="phone" id="phone" class="form-control">
                     </div>
                 </div>
@@ -48,13 +48,18 @@
             <h3 class="mg-top">Work Experience:</h3>
             <div class="row">
                 <div class="col">
-                    <input type="text" placeholder="test" class="form-control">
+                    <label for="job-title">Job Title:</label>
+                    <input type="text" name="jobTitle" id="job-title" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="company">Company:</label>
+                    <input type="text" name="company" id="company" class="form-control">
                 </div>
             </div>
-            <div class="row" id="moreExp1">
+            <div id="moreExp">
 
             </div>
-            <button type="button" onclick="addExp()" class="btn btn-outline-success btn-lg btn-block">More Experience</button>
+            <button type="button" onclick="addExp()" class="btn btn-outline-success btn-lg btn-block mg-top ">More Experience</button>
             <div class="row">
                 <div class="col-md-4 col-xs">
                     <h6 class="mg-top">Are you legally eligible to work in the US?</h6>
