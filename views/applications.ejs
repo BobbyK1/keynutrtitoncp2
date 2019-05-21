@@ -12,6 +12,35 @@
             </ul>
         </div>
     </nav>
+
+    <div class="col">
+        <h1 class="text-center mg-top">Applications:</h1>
+        <% applications.forEach(function(app){ %>
+            <div class="bg-white contact-field" style="width: 75%; padding: 35px;">
+                <h2 class="text-center">Applicant: <%= app.firstName %> <%= app.lastName %></h2>
+                <div class="row mg-top text-center">
+                    <div class="col" style="border: 1px solid black;">
+                        <h3 style="border-bottom: 1px solid black; padding: 5px;">Address:</h3>
+                        <h3><%= app.address %> <br> <%= app.city %>, <%= app.state %> <%= app.zipcode %></h3>
+                    </div>
+                    <div class="col" style="border: 1px solid black;">
+                        <h3 style="border-bottom: 1px solid black; padding: 5px;">Phone Number:</h3>
+                        <h3><%= app.phone %></h3>
+                    </div>
+                    <div class="col" style="border: 1px solid black;">
+                        <h3 style="border-bottom: 1px solid black; padding: 5px;">Email:</h3>
+                        <h3><%= app.email %></h3>
+                    </div>
+                </div>
+                <div class="row mg-top text-center" style="border: 1px solid black;">
+                    <div class="col">
+                        <h3 style="border-bottom: 1px solid black; padding: 5px;">Work Experience:</h3>
+                        <h3><%= app.jobTitle %> at <%= app.company %></h3>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
     
 </div>
 

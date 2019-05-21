@@ -45,16 +45,21 @@ var applicationSchema = new mongoose.Schema({
     lastName: String,
     email: String,
     address: String,
+    city: String,
     state: String,
     zipcode: String,
-    phone: String
+    phone: String,
+    jobTitle: String,
+    company: String
 }, {
     collection: "applications"
 });
 
-// ROUTES
-var Contact = mongoose.model("Contact", contactSchema);
 
+var Contact = mongoose.model("Contact", contactSchema);
+var Apply = mongoose.model("Apply", applicationSchema);
+
+// ROUTES
 app.get("/", function(req, res) {
     res.render("home");
 });
@@ -64,12 +69,40 @@ app.get("/thank-you", function(req, res) {
 })
 
 app.get("/contact-us", function(req, res) {
-    res.render("contact-us", { captcha:res.recaptcha });
+    res.render("contact-us");
 })
 
 app.get("/apply", function(req, res){
-    var field = 1;
-    res.render("apply", { field:field });
+    res.render("apply");
+})
+
+app.post("/apply", function(req, res) {
+    var number = req.body.phone;
+    if(number.length === 10) {
+        var area = number.substring(0, 3);
+        var firstThree = number.substring(3, 6);
+        var lastFour = number.substring(6, 10);
+        number = "(" + area + ") " + firstThree + "-" + lastFour;
+    } else if (number.length === 7) {
+        var firstThree = number.substring(0, 3);
+        var lastFour = number.substring(3, 6);
+        number = firstThree + "-" + lastFour;
+    }
+
+    Apply.create ({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        phone: number,
+        jobTitle: req.body.jobTitle,
+        company: req.body.company
+    });
+
+    res.redirect("/thank-you")
 })
 
 app.post("/contact-us", function(req, res){
@@ -110,7 +143,13 @@ app.post("/dashboard", isLoggedIn, function(req, res){
 })
 
 app.get("/applications", isLoggedIn, function(req, res){
-    res.render("applications");
+    Apply.find({}, function(err, allApplications){
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("applications", { applications: allApplications });
+        }
+    })
 })
 
 app.post("/admin", passport.authenticate("local", {
