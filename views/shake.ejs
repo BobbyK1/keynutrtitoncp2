@@ -1,0 +1,59 @@
+<% include partials/header %>
+
+<div class="row">   
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky" style="margin-right: -15px;">
+                <ul class="nav flex-column" style="font-size: 1.3em;">
+                    <li class="nav-item" style="font-size: 1.5em; border-bottom: 2px solid black;"><strong>DASHBOARD</strong></li>
+                    <li class="nav-item dash-link"><a href="/dashboard" class="nav-link">Contact Us Responses</a></li>
+                    <li class="nav-item dash-link"><a href="/shake" class="nav-link" style="background-color: #A1FFCE; border-bottom: 5px solid #28a745; color: black;">Shake of the month</a></li>
+                    <li class="nav-item dash-link"><a class="nav-link" href="/applications">Applications</a></li>
+                    <li class="nav-item dash-link"><a href="/logout" class="nav-link">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="col mg-top">
+            <h1 class="text-center">Add Shake:</h1>
+            <div class="bg-white contact-field shadow" style="width: 55%; border-radius: 20px; padding: 25px;">
+                <form action="/shakeadd" method="POST">
+                    <div class="col">
+                        <label for="shake-name">Shake Name:</label>
+                        <input type="text" name="shakeName" id="shake-name" class="form-control">
+                    </div>
+                    <div class="col mg-top">
+                        <label for="description">Description: (Less Than 120 Characters)</label>
+                        <textarea onkeydown="chRemain(this, 120)" required="required" class="form-control mg-btm" id="description" name="description" rows="4" style="resize: none;"></textarea>
+                        <div class="row">
+                            <div class="col">
+                                <p style="text-align: right; margin-top: -25px;"><span id="rem">120</span> Characters Remaining</p>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        function chRemain(field, maxLimit) {
+                            var countField = document.getElementById("description").value.length;
+                            console.log(countField);
+                            document.getElementById("rem").innerHTML = maxLimit - countField;
+                        }
+                    </script>
+                    <button class="btn btn-lg btn-block btn-outline-success">Submit</button>
+                </form>
+            </div>
+            <div class="mg-top text-center" style="padding: 25px;">
+                <h1 class="mg-top">Current Shakes:</h1>
+                <div class="row justify-content-center">
+                    <% shakes.forEach(function(shake){ %>
+                        <div class="col-auto bg-white shadow" style="width: 25%; padding: 25px; border-radius: 20px; margin: 5px;">
+                            <h3 style="border-bottom: 1px solid black;"><%= shake.shakeName %></h3>
+                            <p><%= shake.description %></p>
+                            <form action="/shakeremove" method="POST">
+                                <button class="btn btn-lg btn-block btn-danger" name="id" value="<%= shake.id %>">Delete</button>
+                            </form>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+</div>  
+
+<% include partials/footer %>

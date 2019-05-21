@@ -6,7 +6,7 @@
             <ul class="nav flex-column" style="font-size: 1.3em;">
                 <li class="nav-item" style="font-size: 1.5em; border-bottom: 2px solid black;"><strong>DASHBOARD</strong></li>
                 <li class="nav-item dash-link"><a href="/dashboard" class="nav-link">Contact Us Responses</a></li>
-                <li class="nav-item dash-link">Shake of the month</li>
+                <li class="nav-item dash-link"><a href="/shake" class="nav-link">Shake of the month</a></li>
                 <li class="nav-item dash-link"><a class="nav-link" href="/applications" style="background-color: #A1FFCE; border-bottom: 5px solid #28a745; color: black;">Applications</a></li>
                 <li class="nav-item dash-link"><a href="/logout" class="nav-link">Logout</a></li>
             </ul>
@@ -16,7 +16,7 @@
     <div class="col">
         <h1 class="text-center mg-top">Applications:</h1>
         <% applications.forEach(function(app){ %>
-            <div class="bg-white contact-field" style="width: 75%; padding: 35px;">
+            <div class="bg-white contact-field shadow" style="width: 75%; padding: 35px; border-radius: 10px;">
                 <h2 class="text-center">Applicant: <%= app.firstName %> <%= app.lastName %></h2>
                 <div class="row mg-top text-center">
                     <div class="col" style="border: 1px solid black;">

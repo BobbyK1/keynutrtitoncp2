@@ -19,35 +19,24 @@
         <div class="container mg-btm animated fadeInUp">
             <h1 class="text-center mg-top">Shakes of the Month:</h1>
             <div class="row justify-content-center">
+                <% shakes.forEach(function(shake){ %>
                 <div class="col-auto mg-top">
                     <div class="card shadow" style="width: 18rem;">
                         <img class="card-img-top" src="https://dummyimage.com/640x360/fff/aaa" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h2 class="card-title"><%= shake.shakeName %></h2>
+                            <p class="card-text"><%= shake.description %></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-auto mg-top">
-                    <div class="card shadow" style="width: 18rem;">
-                        <img class="card-img-top" src="https://dummyimage.com/640x360/fff/aaa" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+                <% }) %>
+            </div>
+            <div class="row justify-content-center mg-top bg-white shadow" style="margin-left: -50%; margin-right: -50%; padding: 25px;">
+                <div class="col">
+                    <h1 class="text-center">About Us:</h1>
                 </div>
-                <div class="col-auto mg-top">
-                    <div class="card shadow" style="width: 18rem;">
-                        <img class="card-img-top" src="https://dummyimage.com/640x360/fff/aaa" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+                <div class="col">
+                    <img src="https://www.sxsw.com/wp-content/uploads/2018/03/Herbalife-SXSW-blog-640x360.jpg" alt="Herbalife Stock Image" class="img-fluid">
                 </div>
             </div>
         </div>

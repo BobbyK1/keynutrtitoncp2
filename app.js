@@ -55,28 +55,43 @@ var applicationSchema = new mongoose.Schema({
     collection: "applications"
 });
 
+// SHAKE SCHEMA
+var shakeSchema = new mongoose.Schema({
+    shakeName: String,
+    description: String
+}, {
+    collection: "shakes"
+});
+
 
 var Contact = mongoose.model("Contact", contactSchema);
 var Apply = mongoose.model("Apply", applicationSchema);
+var Shake = mongoose.model("Shake", shakeSchema);
 
 // ROUTES
-app.get("/", function(req, res) {
-    res.render("home");
+app.get("/", (req, res) => {
+    Shake.find({}, (err, allShakes) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("home", { shakes: allShakes });
+        }
+    })
 });
 
-app.get("/thank-you", function(req, res) {
+app.get("/thank-you", (req, res) => {
     res.render("thank-you");
 })
 
-app.get("/contact-us", function(req, res) {
+app.get("/contact-us", (req, res) => {
     res.render("contact-us");
 })
 
-app.get("/apply", function(req, res){
+app.get("/apply", (req, res) => {
     res.render("apply");
 })
 
-app.post("/apply", function(req, res) {
+app.post("/apply", (req, res) => {
     var number = req.body.phone;
     if(number.length === 10) {
         var area = number.substring(0, 3);
@@ -105,7 +120,7 @@ app.post("/apply", function(req, res) {
     res.redirect("/thank-you")
 })
 
-app.post("/contact-us", function(req, res){
+app.post("/contact-us", (req, res) => {
         Contact.create ({
             email: req.body.email,
             name: req.body.name,
@@ -115,12 +130,42 @@ app.post("/contact-us", function(req, res){
         res.redirect("/thank-you");
 })
 
-app.get("/admin", function(req, res){
+app.get("/shake", isLoggedIn, (req, res) =>{
+    Shake.find({}, (err, allShakes) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("shake", {shakes: allShakes});
+        }
+    })
+})
+
+app.post("/shakeadd", isLoggedIn, (req, res) => {
+    Shake.create ({
+        shakeName: req.body.shakeName,
+        description: req.body.description
+    })
+    
+    res.redirect("/shake")
+})
+
+app.post("/shakeremove", isLoggedIn, (req, res) => {
+    Shake.deleteOne({ _id: req.body.id }, (err) => {
+        id = req.body.id;
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/shake");
+        }
+    })
+})
+
+app.get("/admin", (req, res) =>{
     res.render("admin");
 })
 
-app.get("/dashboard", isLoggedIn, function(req, res){
-    Contact.find({}, function(err, allContact){
+app.get("/dashboard", isLoggedIn, (req, res) => {
+    Contact.find({}, (err, allContact) => {
         if(err) {
             console.log(err);
         } else {
@@ -129,10 +174,9 @@ app.get("/dashboard", isLoggedIn, function(req, res){
     })
 })
 
-app.post("/dashboard", isLoggedIn, function(req, res){
-    Contact.deleteOne({ _id: req.body.id }, function(err) {
+app.post("/dashboard", isLoggedIn, (req, res) => {
+    Contact.deleteOne({ _id: req.body.id }, (err) => {
         id = req.body.id;
-        console.log(id);
         if (err) {
             console.log(err)
         }
@@ -142,7 +186,7 @@ app.post("/dashboard", isLoggedIn, function(req, res){
     });
 })
 
-app.get("/applications", isLoggedIn, function(req, res){
+app.get("/applications", isLoggedIn, (req, res) =>{
     Apply.find({}, function(err, allApplications){
         if(err) {
             console.log(err);
@@ -155,11 +199,11 @@ app.get("/applications", isLoggedIn, function(req, res){
 app.post("/admin", passport.authenticate("local", {
     successRedirect: "/dashboard",
     failureRedirect: "/admin"
-}), function(req, res){
+}), (req, res) => {
 
 })
 
-app.get("/logout", function(req, res){
+app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
 })
@@ -171,6 +215,6 @@ function isLoggedIn(req, res, next) {
     res.redirect("/admin");
 }
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT, () => {
     console.log("Server Started on Port: " + process.env.PORT);
 });
