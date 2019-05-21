@@ -72,6 +72,7 @@ body {
 }
 
 footer {
+    
     flex-shrink: 0;
     margin-top: auto;
 }
@@ -191,6 +192,11 @@ form {
 
     .text-right {
         text-align: left !important;
+    }
+
+    .mobile-field {
+        width: 100% !important;
+        padding: 0 !important;
     }
 }
 

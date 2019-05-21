@@ -1,4 +1,13 @@
 <% include partials/header %>
+<style>
+        /* Set the size of the div element that contains the map */
+        #map {
+          height: 400px;  /* The height is 400 pixels */
+          width: 100%;  /* The width is the width of the web page */
+          margin: 0 auto;
+          padding: 0;
+         }
+      </style>
 <div class="wrapper">
     <div class="container-fluid content bg-image shadow animated fadeInDown">
         <div class="container">
@@ -20,17 +29,71 @@
             <h1 class="text-center mg-top">Shakes of the Month:</h1>
             <div class="row justify-content-center">
                 <% shakes.forEach(function(shake){ %>
-                <div class="col-auto mg-top">
+                <div class="col-auto mg-top" style="margin: 5px;">
                     <div class="card shadow" style="width: 18rem;">
-                        <img class="card-img-top" src="https://dummyimage.com/640x360/fff/aaa" alt="Card image cap">
-                        <div class="card-body">
+                        <img style="height: 250px;  " class="card-img-top" src="<%= shake.shakeImg %>" alt="Card image cap">
+                        <div class="card-body" style="border-bottom: 4px solid #01FF70;">
                             <h2 class="card-title"><%= shake.shakeName %></h2>
                             <p class="card-text"><%= shake.description %></p>
+                            <a href="#map" class="btn btn-lg btn-block btn-outline-success">Get Yours Today!</a>
                         </div>
                     </div>
                 </div>
                 <% }) %>
             </div>
+        </div>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row mg-top bg-white shadow justify-content-center mobile-fluid">
+                        <div class="col-md-6 col-xs-12">
+                            <h2 class="text-center" style="border-bottom: 2px solid #01FF70;">Hours &amp; Info.</h2>
+        
+                            <div class="row mg-top" style="margin-right: -25px;">
+                                <div class="col-md-6 col-xs-12">
+                                    <h3>Address:</h3>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <h3>928 S Court St <br> Crown Point, IN 46307</h3>
+                                </div>
+                            </div>
+                            <div class="row mg-top" style="margin-right: -25px;">
+                                <div class="col-md-6 col-xs-12">
+                                    <h3>Phone:</h3>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <h3><a href="tel:+12197795752">(219) 779-9652</a></h3>
+                                </div>
+                            </div>
+                            <div class="row mg-top" style="margin-right: -25px;">
+                                <div class="col-md-6 col-xs-12">
+                                    <h3>Hours:</h3>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <h3>
+                                        Mon-Fri: 6:30 AM - 5:00 PM <br>
+                                        Sat: 8:00 AM - 2:00 PM <br>
+                                        Sun: 9:00 AM - 1:00 PM
+                                    </h3>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-md-6 col-xs-12" style="padding: 0;">
+                                <div id="map"></div>
+                                <script>
+                                    // Initialize and add the map
+                                    function initMap() {
+                                        var key = {lat: 41.3997344, lng: -87.368529};
+                                        var map = new google.maps.Map(
+                                        document.getElementById('map'), {zoom: 15, center: key});
+                                        var marker = new google.maps.Marker({position: key, map: map});
+                                    }
+                                    </script>
+                                    <script async defer
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilaP5kvUXTydtYbuFwR___u85pu5nQ-U&callback=initMap">
+                                </script>   
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>

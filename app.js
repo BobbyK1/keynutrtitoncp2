@@ -58,7 +58,8 @@ var applicationSchema = new mongoose.Schema({
 // SHAKE SCHEMA
 var shakeSchema = new mongoose.Schema({
     shakeName: String,
-    description: String
+    description: String,
+    shakeImg: String
 }, {
     collection: "shakes"
 });
@@ -143,7 +144,8 @@ app.get("/shake", isLoggedIn, (req, res) =>{
 app.post("/shakeadd", isLoggedIn, (req, res) => {
     Shake.create ({
         shakeName: req.body.shakeName,
-        description: req.body.description
+        description: req.body.description,
+        shakeImg: req.body.shakeImg
     })
     
     res.redirect("/shake")

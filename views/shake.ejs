@@ -14,11 +14,15 @@
         </nav>
         <div class="col mg-top">
             <h1 class="text-center">Add Shake:</h1>
-            <div class="bg-white contact-field shadow" style="width: 55%; border-radius: 20px; padding: 25px;">
+            <div class="bg-white contact-field shadow mobile-field" style="width: 55%; border-radius: 20px;">
                 <form action="/shakeadd" method="POST">
                     <div class="col">
                         <label for="shake-name">Shake Name:</label>
                         <input type="text" name="shakeName" id="shake-name" class="form-control">
+                    </div>
+                    <div class="col mg-top">
+                        <label for="shake-img">Image: </label>
+                        <input type="text" name="shakeImg" id="shake-img" class="form-control">
                     </div>
                     <div class="col mg-top">
                         <label for="description">Description: (Less Than 120 Characters)</label>
@@ -39,14 +43,15 @@
                     <button class="btn btn-lg btn-block btn-outline-success">Submit</button>
                 </form>
             </div>
-            <div class="mg-top text-center" style="padding: 25px;">
+            <div class="mg-top text-center">
                 <h1 class="mg-top">Current Shakes:</h1>
                 <div class="row justify-content-center">
                     <% shakes.forEach(function(shake){ %>
-                        <div class="col-auto bg-white shadow" style="width: 25%; padding: 25px; border-radius: 20px; margin: 5px;">
+                        <div class="col-auto bg-white shadow mobile-field" style="width: 25%; border-radius: 20px; margin: 5px;">
+                            <img src="<%= shake.shakeImg %>" class="img-fluid">
                             <h3 style="border-bottom: 1px solid black;"><%= shake.shakeName %></h3>
                             <p><%= shake.description %></p>
-                            <form action="/shakeremove" method="POST">
+                            <form action="/shakeremove" method="POST" style="padding: 0;">
                                 <button class="btn btn-lg btn-block btn-danger" name="id" value="<%= shake.id %>">Delete</button>
                             </form>
                         </div>
