@@ -2,7 +2,7 @@
 
 <div class="row">   
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky" style="margin-right: -15px;">
+            <div class="sidebar-sticky shadow" style="margin-right: -15px;">
                 <ul class="nav flex-column" style="font-size: 1.3em;">
                     <li class="nav-item" style="font-size: 1.5em; border-bottom: 2px solid black;"><strong>DASHBOARD</strong></li>
                     <li class="nav-item dash-link"><a href="/dashboard" class="nav-link">Contact Us Responses</a></li>
@@ -44,11 +44,11 @@
                 </form>
             </div>
             <div class="mg-top text-center">
-                <h1 class="mg-top">Current Shakes:</h1>
+                <h1 class="mg-top" id="shakes">Current Shakes:</h1>
                 <div class="row justify-content-center">
                     <% shakes.forEach(function(shake){ %>
                         <div class="col-auto bg-white shadow mobile-field" style="width: 25%; border-radius: 20px; margin: 5px;">
-                            <img src="<%= shake.shakeImg %>" class="img-fluid">
+                            <img style="height: 250px;" src="<%= shake.shakeImg %>" class="img-fluid">
                             <h3 style="border-bottom: 1px solid black;"><%= shake.shakeName %></h3>
                             <p><%= shake.description %></p>
                             <form action="/shakeremove" method="POST" style="padding: 0;">

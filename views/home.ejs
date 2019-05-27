@@ -42,43 +42,62 @@
                 <% }) %>
             </div>
         </div>
-        <div class="container-fluid">
+    </div>
             <div class="container">
-                <div class="row mg-top bg-white shadow justify-content-center mobile-fluid">
-                        <div class="col-md-6 col-xs-12">
-                            <h2 class="text-center" style="border-bottom: 2px solid #01FF70;">Hours &amp; Info.</h2>
-        
-                            <div class="row mg-top" style="margin-right: -25px;">
-                                <div class="col-md-6 col-xs-12">
-                                    <h3>Address:</h3>
-                                </div>
-                                <div class="col-md-6 col-xs-12">
-                                    <h3>928 S Court St <br> Crown Point, IN 46307</h3>
-                                </div>
-                            </div>
-                            <div class="row mg-top" style="margin-right: -25px;">
-                                <div class="col-md-6 col-xs-12">
-                                    <h3>Phone:</h3>
-                                </div>
-                                <div class="col-md-6 col-xs-12">
-                                    <h3><a href="tel:+12197795752">(219) 779-9652</a></h3>
+                <div class="row justify-content-center mg-btm" style="width: 100%; margin: 0 auto;">
+                        <div class="col-lg-5 col-xs-12">
+                            <div class="row bg-white shadow mg-right" style="margin-bottom: 2%; border-radius: 10px; height: 50%;">
+                                <div class="col mobile-fluid" style="padding-left: 0; padding-right: 0;">
+                                    <h2 class="text-center bg-image" style="border-bottom: 2px solid #01FF70; padding: 15px; width: 100%; border-top-right-radius: 10px; border-top-left-radius: 10px;">About Us:</h2>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p>Apple</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mg-top" style="margin-right: -25px;">
-                                <div class="col-md-6 col-xs-12">
-                                    <h3>Hours:</h3>
-                                </div>
-                                <div class="col-md-6 col-xs-12">
-                                    <h3>
-                                        Mon-Fri: 6:30 AM - 5:00 PM <br>
-                                        Sat: 8:00 AM - 2:00 PM <br>
-                                        Sun: 9:00 AM - 1:00 PM
-                                    </h3>
+                            <div class="row bg-white shadow mg-right" style="border-radius: 10px; height: 49%;">
+                                <div class="col" style="padding-right: 0; padding-left: 0;">
+                                    <h2 class="text-center bg-image" style="border-bottom: 2px solid #01FF70; padding: 15px; width: 100%; border-top-right-radius: 10px; border-top-left-radius: 10px;">
+                                        3-Step Process:
+                                    </h2>
                                 </div>
                             </div>
-                        </div> 
-                        <div class="col-md-6 col-xs-12" style="padding: 0;">
-                                <div id="map"></div>
+                        </div>
+                        <div class="col-lg-5 col-xs-12 bg-white shadow mobile-fluid m-top" style="border-radius: 10px; padding: 0;">
+                            <h2 class="text-center bg-image" style="border-bottom: 2px solid #01FF70; padding: 15px; border-top-right-radius: 10px; border-top-left-radius: 10px;">Hours &amp; Info.</h2>
+    
+                            <div class="text-justify" style="margin: 20px;">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                    <h3 style="font-size: 24px;">Address:</h3>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 text-justify">
+                                        <h3 style="font-size: 24px;">928 S Court St <br> Crown Point, IN 46307</h3>
+                                    </div>
+                                </div>
+                                <div class="row mg-top">
+                                    <div class="col-md-6 col-xs-12">
+                                        <h3 style="font-size: 24px;">Phone:</h3>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <h3 style="font-size: 24px;"><a href="tel:+12197795752">(219) 779-9652</a></h3>
+                                    </div>
+                                </div>
+                                <div class="row mg-top">
+                                    <div class="col-md-6 col-xs-12">
+                                        <h3 style="font-size: 24px;">Hours:</h3>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mg-btm" style="padding-right: 0; margin-right: -25px;">
+                                        <h3 style="font-size: 24px;">
+                                            Mon-Fri: 6:30 AM - 5:00 PM <br>
+                                            Sat: 8:00 AM - 2:00 PM <br>
+                                            Sun: 9:00 AM - 1:00 PM
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div id="map" class="mg-top" style="border: 2px solid #01FF70;"></div>
+                                
                                 <script>
                                     // Initialize and add the map
                                     function initMap() {
@@ -90,11 +109,10 @@
                                     </script>
                                     <script async defer
                                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilaP5kvUXTydtYbuFwR___u85pu5nQ-U&callback=initMap">
-                                </script>   
+                                </script> 
+                            </div>  
                         </div>
                     </div>
                 </div>
-        </div>
-    </div>
 </div>
 <% include partials/footer %>

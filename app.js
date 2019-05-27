@@ -157,7 +157,7 @@ app.post("/shakeremove", isLoggedIn, (req, res) => {
         if(err){
             console.log(err);
         } else {
-            res.redirect("/shake");
+            res.redirect("/shake/#shake");
         }
     })
 })

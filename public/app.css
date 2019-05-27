@@ -196,12 +196,35 @@ form {
 
     .mobile-field {
         width: 100% !important;
-        padding: 0 !important;
+        padding-left: 0 !important;
+        padding-rigt: 0 !important;
+        margin: 0;
+    }
+
+    .mg-m {
+        margin-bottom: 15px;
+        padding-right: 0;
+    }
+    .m-top {
+        margin-top: 3%;
     }
 }
 
 @media only screen and (min-width: 768px) {
     .height {
         height: 800px;
+    }
+    .m-top {
+        margin-top: 3%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .mg-right {
+        margin-right: 5px;
+    }
+
+    .m-top {
+        margin-top: 0;
     }
 }
